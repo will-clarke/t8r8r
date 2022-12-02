@@ -1,0 +1,5 @@
+<h1>Edit T8r</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.t8r_path(@conn, :update, @t8r)) %>
+
+<span><%= link "Back", to: Routes.t8r_path(@conn, :index) %></span>

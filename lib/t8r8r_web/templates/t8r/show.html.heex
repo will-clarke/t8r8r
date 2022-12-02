@@ -1,0 +1,33 @@
+<h1>Show T8r</h1>
+
+<ul>
+
+  <li>
+    <strong>Image location:</strong>
+    <%= @t8r.image_location %>
+  </li>
+
+  <li>
+    <strong>Votes total:</strong>
+    <%= @t8r.votes_total %>
+  </li>
+
+  <li>
+    <strong>Elo score:</strong>
+    <%= @t8r.elo_score %>
+  </li>
+
+  <li>
+    <strong>Votes won:</strong>
+    <%= @t8r.votes_won %>
+  </li>
+
+  <li>
+    <strong>Votes lost:</strong>
+    <%= @t8r.votes_lost %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.t8r_path(@conn, :edit, @t8r) %></span> |
+<span><%= link "Back", to: Routes.t8r_path(@conn, :index) %></span>

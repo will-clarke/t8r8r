@@ -1,0 +1,104 @@
+defmodule T8r8r.T8rs do
+  @moduledoc """
+  The T8rs context.
+  """
+
+  import Ecto.Query, warn: false
+  alias T8r8r.Repo
+
+  alias T8r8r.T8rs.T8r
+
+  @doc """
+  Returns the list of t8r.
+
+  ## Examples
+
+      iex> list_t8r()
+      [%T8r{}, ...]
+
+  """
+  def list_t8r do
+    Repo.all(T8r)
+  end
+
+  @doc """
+  Gets a single t8r.
+
+  Raises `Ecto.NoResultsError` if the T8r does not exist.
+
+  ## Examples
+
+      iex> get_t8r!(123)
+      %T8r{}
+
+      iex> get_t8r!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_t8r!(id), do: Repo.get!(T8r, id)
+
+  @doc """
+  Creates a t8r.
+
+  ## Examples
+
+      iex> create_t8r(%{field: value})
+      {:ok, %T8r{}}
+
+      iex> create_t8r(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_t8r(attrs \\ %{}) do
+    %T8r{}
+    |> T8r.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a t8r.
+
+  ## Examples
+
+      iex> update_t8r(t8r, %{field: new_value})
+      {:ok, %T8r{}}
+
+      iex> update_t8r(t8r, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_t8r(%T8r{} = t8r, attrs) do
+    t8r
+    |> T8r.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a t8r.
+
+  ## Examples
+
+      iex> delete_t8r(t8r)
+      {:ok, %T8r{}}
+
+      iex> delete_t8r(t8r)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_t8r(%T8r{} = t8r) do
+    Repo.delete(t8r)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking t8r changes.
+
+  ## Examples
+
+      iex> change_t8r(t8r)
+      %Ecto.Changeset{data: %T8r{}}
+
+  """
+  def change_t8r(%T8r{} = t8r, attrs \\ %{}) do
+    T8r.changeset(t8r, attrs)
+  end
+end

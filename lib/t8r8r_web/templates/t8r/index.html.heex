@@ -1,0 +1,34 @@
+<h1>Listing T8r</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image location</th>
+      <th>Votes total</th>
+      <th>Elo score</th>
+      <th>Votes won</th>
+      <th>Votes lost</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for t8r <- @t8r do %>
+    <tr>
+      <td><%= t8r.image_location %></td>
+      <td><%= t8r.votes_total %></td>
+      <td><%= t8r.elo_score %></td>
+      <td><%= t8r.votes_won %></td>
+      <td><%= t8r.votes_lost %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.t8r_path(@conn, :show, t8r) %></span>
+        <span><%= link "Edit", to: Routes.t8r_path(@conn, :edit, t8r) %></span>
+        <span><%= link "Delete", to: Routes.t8r_path(@conn, :delete, t8r), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New T8r", to: Routes.t8r_path(@conn, :new) %></span>
