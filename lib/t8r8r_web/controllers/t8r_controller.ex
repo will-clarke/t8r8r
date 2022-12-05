@@ -4,6 +4,11 @@ defmodule T8r8rWeb.T8rController do
   alias T8r8r.T8rs
   alias T8r8r.T8rs.T8r
 
+  def vote(conn, _params) do
+    t8r = T8rs.list_t8r()
+    render(conn, "index.html", t8r: t8r)
+  end
+
   def index(conn, _params) do
     t8r = T8rs.list_t8r()
     render(conn, "index.html", t8r: t8r)

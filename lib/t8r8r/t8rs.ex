@@ -21,6 +21,15 @@ defmodule T8r8r.T8rs do
     Repo.all(T8r)
   end
 
+  def get_random_t8rs(n) do
+    query =
+      from T8r,
+        order_by: fragment("RANDOM()"),
+        limit: ^n
+
+    Repo.all(query)
+  end
+
   @doc """
   Gets a single t8r.
 
