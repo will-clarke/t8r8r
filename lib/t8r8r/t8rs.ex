@@ -27,15 +27,15 @@ defmodule T8r8r.T8rs do
 
     winner_changeset =
       Ecto.Changeset.change(winner,
-        votes_total: winner.votes_total || 0 + 1,
-        votes_won: winner.votes_won || 0 + 1,
+        votes_total: (winner.votes_total || 0) + 1,
+        votes_won: (winner.votes_won || 0) + 1,
         elo_score: winner_score
       )
 
     loser_changeset =
       Ecto.Changeset.change(loser,
-        votes_total: loser.votes_total || 0 + 1,
-        votes_lost: loser.votes_lost || 0 + 1,
+        votes_total: (loser.votes_total || 0) + 1,
+        votes_lost: (loser.votes_lost || 0) + 1,
         elo_score: loser_score
       )
 
