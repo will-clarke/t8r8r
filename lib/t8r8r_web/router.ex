@@ -17,7 +17,7 @@ defmodule T8r8rWeb.Router do
   scope "/", T8r8rWeb do
     pipe_through(:browser)
 
-    get("/", PageController, :index)
+    get("/", T8rController, :vote)
 
     resources("/t8r", T8rController)
   end

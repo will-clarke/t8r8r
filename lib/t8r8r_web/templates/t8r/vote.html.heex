@@ -29,5 +29,10 @@
 
 </ul>
 
-<span><%= link "Edit", to: Routes.t8r_path(@conn, :edit, @t8r) %></span> |
-<span><%= link "Back", to: Routes.t8r_path(@conn, :index) %></span>
+<%= render "form.html", Map.put(assigns, :action, Routes.t8r_path(@conn, :update, @t8r)) %>
+
+<span><%= link "All t8rs", to: Routes.t8r_path(@conn, :show) %></span> |
+
+<h1>Edit T8r</h1>
+
+
