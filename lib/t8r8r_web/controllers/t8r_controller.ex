@@ -5,27 +5,21 @@ defmodule T8r8rWeb.T8rController do
   alias T8r8r.T8rs.T8r
 
   def vote(conn, _params) do
-    [t8r1, t8r2] = T8rs.get_random_t8rs(2)
-    render(conn, "vote.html", t8r1: t8r1, t8r2: t8r2)
+    [t8r_1, t8r_2] = T8rs.get_random_t8rs(2)
+    render(conn, "vote.html", t8r_1: t8r_1, t8r_2: t8r_2)
   end
 
   def update_after_vote(conn, %{
-        "id1" => id1,
-        "t8r1" => t8r_params1,
-        "id2" => id2,
-        "t8r2" => t8r_params2
+        "id1" => id_1,
+        "id2" => id_2,
+        "winning_id" => winning_id
       }) do
-    t8r1 = T8rs.get_t8r!(id1)
-    t8r2 = T8rs.get_t8r!(id2)
-
-    {status1, _changeset} = T8rs.update_t8r(t8r1, t8r_params1)
-    {status2, _changeset} = T8rs.update_t8r(t8r2, t8r_params2)
-
-    if status1 == :error || status2 == :error do
-      conn
-      |> put_flash(:error, "Sorry - something went wrong. Please try again!")
-      |> redirect(to: Routes.t8r_path(conn, :vote))
-    end
+    err = T8rs.update_from_vote(id_1, id_2, winning_id)
+    # if status1 == :error || status2 == :error do
+    #   conn
+    #   |> put_flash(:error, "Sorry - something went wrong. Please try again!")
+    #   |> redirect(to: Routes.t8r_path(conn, :vote))
+    # end
 
     conn
     |> put_flash(:info, "Thanks for voting!!")

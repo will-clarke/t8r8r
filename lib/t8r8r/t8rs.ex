@@ -8,6 +8,43 @@ defmodule T8r8r.T8rs do
 
   alias T8r8r.T8rs.T8r
 
+  def update_from_vote(id_1, id_2, winning_id) do
+    t8r_1 = get_t8r!(id_1)
+    t8r_2 = get_t8r!(id_2)
+
+    unless(winning_id == id_1 || winning_id == id_2) do
+      raise "invalid input; winning_id should match t8r ids in update_from_vote"
+    end
+
+    {winner, loser} =
+      if winning_id == id_1 do
+        {t8r_1, t8r_2}
+      else
+        {t8r_2, t8r_1}
+      end
+
+    {winner_score, loser_score} = calculate_scores(winner.elo_score, loser.elo_score)
+
+    winner_changeset =
+      Ecto.Changeset.change(winner,
+        vote_count: winner.vote_total + 1,
+        votes_won: winner.votes_won + 1,
+        elo_score: winner_score
+      )
+
+    loser_changeset =
+      Ecto.Changeset.change(loser,
+        vote_count: loser.vote_total + 1,
+        votes_lost: loser.votes_won + 1,
+        elo_score: loser_score
+      )
+
+    Repo.transaction(fn ->
+      Repo.update(winner_changeset)
+      Repo.update(loser_changeset)
+    end)
+  end
+
   @doc """
   Returns the list of t8r.
 
@@ -109,5 +146,9 @@ defmodule T8r8r.T8rs do
   """
   def change_t8r(%T8r{} = t8r, attrs \\ %{}) do
     T8r.changeset(t8r, attrs)
+  end
+
+  defp calculate_scores(winner_score, loser_score) do
+    {winner_score, loser_score}
   end
 end
