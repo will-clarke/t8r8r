@@ -14,7 +14,8 @@ defmodule T8r8rWeb.T8rController do
         "id2" => id_2,
         "winning_id" => winning_id
       }) do
-    err = T8rs.update_from_vote(id_1, id_2, winning_id)
+    result = T8rs.update_from_vote(id_1, id_2, winning_id)
+
     # if status1 == :error || status2 == :error do
     #   conn
     #   |> put_flash(:error, "Sorry - something went wrong. Please try again!")

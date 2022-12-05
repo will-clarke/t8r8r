@@ -3,38 +3,22 @@
 <%= @t8r_1.image_location %>
 <%= @t8r_2.image_location %>
 
-// <ul>
 
-//   <li>
-//     <strong>Image location:</strong>
-//     <%= @t8r.image_location %>
-//   </li>
 
-//   <li>
-//     <strong>Votes total:</strong>
-//     <%= @t8r.votes_total %>
-//   </li>
 
-//   <li>
-//     <strong>Elo score:</strong>
-//     <%= @t8r.elo_score %>
-//   </li>
+<%= form_for @conn, Routes.t8r_path(@conn, :update_after_vote), fn f -> %>
+  <%= hidden_input f, :id1, value: @t8r_1.id %>
+  <%= hidden_input f, :id2, value: @t8r_2.id %>
+  <%= submit "T8r1", name: :winning_id, value: @t8r_1.id %>
+  <%= submit "T8r2", name: :winning_id, value: @t8r_2.id %>
+<% end %>
 
-//   <li>
-//     <strong>Votes won:</strong>
-//     <%= @t8r.votes_won %>
-//   </li>
 
-//   <li>
-//     <strong>Votes lost:</strong>
-//     <%= @t8r.votes_lost %>
-//   </li>
 
-// </ul>
+<input type="submit" name="flavor" value="Vanilla">
 
-<%= render "vote_form.html", Map.put(assigns, :action, Routes.t8r_path(@conn, :update_after_vote, @t8r)) %>
-
-<span><%= link "All t8rs", to: Routes.t8r_path(@conn, :show) %></span> |
+ render "vote_form.html", Map.put(assigns, :action, Routes.t8r_path(@conn, :update_after_vote, @t8r_1)) %
+<span><%= link "All t8rs", to: Routes.t8r_path(@conn, :index) %></span> |
 
 <h1>Edit T8r</h1>
 
