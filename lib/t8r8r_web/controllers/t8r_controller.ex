@@ -12,9 +12,11 @@ defmodule T8r8rWeb.T8rController do
         render(conn, "vote.html", t8r_1: t8r_1, t8r_2: t8r_2)
 
       _ ->
+        t8r = T8rs.list_t8r()
+
         conn
-        |> put_flash(:info, "Thanks for voting!!")
-        |> render("index.html")
+        |> put_flash(:info, "Can't vote for some reason")
+        |> render("index.html", t8r: t8r)
     end
   end
 
