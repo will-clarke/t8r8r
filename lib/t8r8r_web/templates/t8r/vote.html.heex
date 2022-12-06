@@ -9,23 +9,22 @@
 <div class="row">
   <div class="column">
     <img src={@t8r_1.image_location} alt="" class="h-10 w-auto lg:h-12" />
+    <%= form_for @conn, Routes.t8r_path(@conn, :update_after_vote), fn f -> %>
+      <%= hidden_input f, :id1, value: @t8r_1.id %>
+      <%= hidden_input f, :id2, value: @t8r_2.id %>
+      <%= submit "Nice t8r", name: :winning_id, value: @t8r_1.id %>
+    <% end %>
+    
   </div>
   <div class="column">
     <img src={@t8r_2.image_location} alt="" class="h-10 w-auto lg:h-12" />
+    <%= form_for @conn, Routes.t8r_path(@conn, :update_after_vote), fn f -> %>
+      <%= hidden_input f, :id1, value: @t8r_1.id %>
+      <%= hidden_input f, :id2, value: @t8r_2.id %>
+      <%= submit "Nice t8r", name: :winning_id, value: @t8r_2.id %>
+    <% end %>
   </div>
 </div>
 
 
-<%= form_for @conn, Routes.t8r_path(@conn, :update_after_vote), fn f -> %>
-  <%= hidden_input f, :id1, value: @t8r_1.id %>
-  <%= hidden_input f, :id2, value: @t8r_2.id %>
-  <%= submit "T8r1", name: :winning_id, value: @t8r_1.id %>
-  <%= submit "T8r2", name: :winning_id, value: @t8r_2.id %>
-<% end %>
-
-
 <span><%= link "All t8rs", to: Routes.t8r_path(@conn, :index) %></span> |
-
-<h1>Edit T8r</h1>
-
-
