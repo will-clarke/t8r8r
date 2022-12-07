@@ -10,8 +10,13 @@
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 
-defmodule GlobalSetup do
-  def run do
+# To run this, you need to
+# $ fly ssh console
+# $ ./app/bin/t8r8 remote
+# {IEX} ? T8r8r.Repo.SeedDB.seedTheDatabase
+
+defmodule T8r8r.Repo.SeedDB do
+  def seedTheDatabase do
     images = [
       "priv/static/images/t8rs/1-cce955b4be92817efd1bf28fb11940d5.jpg",
       "priv/static/images/t8rs/2-a5edf407c0f594f07cc5bb68f29a558b.jpg",
@@ -28,14 +33,7 @@ defmodule GlobalSetup do
 
       T8r8r.Repo.insert!(%T8r8r.T8rs.T8r{
         image_location: stripped
-        # elo_score: Enum.random(0..10),
-        # votes_lost: Enum.random(0..10),
-        # votes_total: Enum.random(0..10),
-        # votes_won: Enum.random(0..10)
       })
     end
-
-    # T8r8r.Repo.insert!(%T8r8r.T8rs.T8r{})
-    # T8r8r.Repo.insert!(%T8r8r.T8rs.T8r{image_location: "deliberately_wrong"})
   end
 end
