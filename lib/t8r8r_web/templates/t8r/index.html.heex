@@ -15,9 +15,9 @@
   <tbody>
 <%= for t8r <- @t8r do %>
     <tr>
-      <td><%= t8r.image_location %></td>
-      <td><%= t8r.votes_total %></td>
+      <td><img src={t8r.image_location} ></td>
       <td><%= t8r.elo_score %></td>
+      <td><%= t8r.votes_total %></td>
       <td><%= t8r.votes_won %></td>
       <td><%= t8r.votes_lost %></td>
 
