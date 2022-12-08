@@ -149,6 +149,6 @@ defmodule T8r8r.T8rs do
   end
 
   defp calculate_scores(winner_score, loser_score) do
-    {winner_score, loser_score}
+    Elo.rate(winner_score, loser_score, :win)
   end
 end
