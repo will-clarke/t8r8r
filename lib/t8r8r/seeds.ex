@@ -13,9 +13,9 @@
 # To run this, you need to
 # $ fly ssh console
 # $ ./app/bin/t8r8 remote
-# {IEX} ? T8r8r.Repo.SeedDB.seedTheDatabase
+# {IEX} ? T8r8r.SeedDB.seedTheDatabase
 
-defmodule T8r8r.Repo.SeedDB do
+defmodule T8r8r.SeedDB do
   def seedTheDatabase do
     images = [
       "priv/static/images/t8rs/1-cce955b4be92817efd1bf28fb11940d5.jpg",
@@ -29,7 +29,7 @@ defmodule T8r8r.Repo.SeedDB do
     ]
 
     for imgName <- images do
-      stripped = imgName = String.replace(imgName, "priv/static", "")
+      stripped = String.replace(imgName, "priv/static", "")
 
       T8r8r.Repo.insert!(%T8r8r.T8rs.T8r{
         image_location: stripped
