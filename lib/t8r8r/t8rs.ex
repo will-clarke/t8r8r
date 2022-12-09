@@ -67,6 +67,14 @@ defmodule T8r8r.T8rs do
     Repo.all(query)
   end
 
+  def top(n) do
+    query =
+      from T8r,
+        limit: ^n
+
+    Repo.all(query |> order_by({:desc, :elo_score}))
+  end
+
   @doc """
   Gets a single t8r.
 

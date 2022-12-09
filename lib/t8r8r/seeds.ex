@@ -32,7 +32,11 @@ defmodule T8r8r.SeedDB do
       stripped = String.replace(imgName, "priv/static", "")
 
       T8r8r.Repo.insert!(%T8r8r.T8rs.T8r{
-        image_location: stripped
+        image_location: stripped,
+        elo_score: 1000,
+        votes_lost: 0,
+        votes_total: 0,
+        votes_won: 0
       })
     end
   end
