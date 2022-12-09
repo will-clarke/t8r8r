@@ -18,6 +18,7 @@ defmodule T8r8rWeb.Router do
     pipe_through(:browser)
 
     get("/", T8rController, :vote)
+    get("/about", T8rController, :about)
     get("/gr8", T8rController, :gr8)
     post("/", T8rController, :update_after_vote)
 

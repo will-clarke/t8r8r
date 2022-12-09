@@ -25,6 +25,10 @@ defmodule T8r8rWeb.T8rController do
     render(conn, "gr8.html", t8rs: topT8rs)
   end
 
+  def about(conn, _params) do
+    render(conn, "about.html")
+  end
+
   def update_after_vote(conn, %{
         "id1" => id_1,
         "id2" => id_2,
