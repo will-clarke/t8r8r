@@ -1,19 +1,11 @@
-# T8r8r
+# T8r8r (tater rater)
 
-To start your Phoenix server:
+![](priv/static/images/cute_potato_king_logo_55f60310-c826-4d00-84a3-6db3ab494a0f-176ce782dd044d1fe74c21bf05df3ff7.png)
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+View this in action here: https://t8r8r.fly.dev/
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+The perfect app to rate your favourite potatoes in.
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+Featuring:
 
-## Learn more
-
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+- ELO rating algorithm to work out which potato is **OBJECTIVELY THE BEST**
