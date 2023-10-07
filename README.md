@@ -1,4 +1,4 @@
-# t8r8r - fulfilling your potato-rating needs
+# [t8r8r - fulfilling your potato-rating needs](https://t8r8r.fly.dev/)
 
 ![](priv/static/images/out_03.jpg)
 
